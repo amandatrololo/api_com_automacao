@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const MulherSchema = new mongoose.Schema({
+    id: {
+        type: String,
+        required: true
+    },
     nome: {
         type: String,
         required: true

@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const cors = require("cors") 
+const cors = require("cors")
 //ligando ao arquivo bancodedados.js
 const conectaBancodeDados= require('./dataBase')
 //inicia a função
@@ -24,6 +24,8 @@ async function mostraMulheres(request, response) {
         console.log(erro)
     }
 }
+
+
 
 //POST
 async function criaMulher(request, response) {
@@ -50,7 +52,6 @@ async function corrigeMulher(request, response) {
         if (request.body.nome) {
             mulherEncontrada.nome = request.body.nome
         }
-    
         if (request.body.imagem) {
             mulherEncontrada.imagem = request.body.imagem
         }
@@ -63,7 +64,7 @@ async function corrigeMulher(request, response) {
 
         const mulherAtualizada = await mulherEncontrada.save()
 
-        response.json(mulherAtualizada) 
+        response.json({mensagem:'Mulher atualizada com sucesso!'}) 
     }
     catch (erro) {
         console.log(erro)
@@ -74,7 +75,7 @@ async function corrigeMulher(request, response) {
 async function deletaMulher(request, response) {
     try {
         await Mulher.findByIdAndDelete(request.params.id)
-        response.json({mensagem: 'mulher deletada com sucesso!'})
+        response.json({mensagem: 'Mulher deletada com sucesso!'})
     }
     catch (erro) {
         console.log(erro)
@@ -85,7 +86,7 @@ async function deletaMulher(request, response) {
 app.use(router.get('/mulheres', mostraMulheres)) //configuração da rota GET /mulheres
 app.use(router.post('/mulheres', criaMulher)) //configuração da rota POST /mulheres
 app.use(router.patch('/mulheres/:id', corrigeMulher)) //configuração da rota PATCH /mulheres
-app.use(router.delete('/mulheres/:id', deletaMulher)) //configuração da rota DELETE /mulheres
+app.use(router.delete('/mulheres/deleta/:id', deletaMulher)) //configuração da rota DELETE /mulheres
 
 
 //PORTA
