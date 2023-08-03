@@ -1,7 +1,6 @@
 {
   "name": "cursoeuprogramo",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,5 +16,17 @@
     "express": "^4.18.2",
     "mongoose": "^7.1.0",
     "uuid": "^9.0.0"
-  }
+  },
+  "devDependencies": {
+    "cypress": "^12.17.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amandatrololo/beautiful_course.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amandatrololo/beautiful_course/issues"
+  },
+  "homepage": "https://github.com/amandatrololo/beautiful_course#readme",
+  "description": ""
 }
